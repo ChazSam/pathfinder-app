@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react';
 
 
-function Background(){
+function Classlist(){
   const [getClassName, setGetClassName] = useState("")
 
   useEffect(() => {
-    fetch("http://localhost:3000/background")
+    fetch("http://localhost:3000/class")
       .then((r) => r.json())
       .then((items) => {
         items.map((item)=> {
-          console.log(item.name)
+          console.log(item.system.description)
         })
 
       }
@@ -18,4 +18,5 @@ function Background(){
   }, []);
 }
 
-export default Background
+export default Classlist
+

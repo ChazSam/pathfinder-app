@@ -1,28 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
-import React,{useState,useEffect} from 'react';
+import React from 'react';
+import Classlist from "./Classlist"
+import Background from './Background';
+import Ancestry from './Ancestry';
 
 function App() {
 
-const [getClassName, setGetClassName] = useState("")
-
-  useEffect(() => {
-    fetch("http://localhost:3000/class")
-      .then((r) => r.json())
-      .then((items) => {
-        items.map((item)=> {
-          setGetClassName(item.name)
-        })
-        console.log(getClassName)
-      }
-      
-      );
-  }, []);
 
   return (
     <div className="App">
-
-
+  
+    {/* <Classlist/> */}
+    <Ancestry/>
+    {/* <Background/> */}
         <a>
           Hello World
         </a>
