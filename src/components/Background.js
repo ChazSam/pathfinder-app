@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 
-
 function Background(){
   const [getBackground, setGetBackground] = useState([])
 
