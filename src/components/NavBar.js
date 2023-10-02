@@ -1,23 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 
 function NavBar() {
   return <div className="navbar">
      <nav>
-      <ul>
-        <li>
+    
           <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
+       
           <NavLink to="/Ancestry">Ancestry</NavLink>
-        </li>
-        <li>
+ 
           <NavLink to="/Classlist">Classes</NavLink>
-        </li>
-        <li>
+ 
           <NavLink to="/Background">Background</NavLink>
-        </li>
-      </ul>
     </nav>
   </div>;
 }

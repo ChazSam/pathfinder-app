@@ -6,7 +6,7 @@ import Ancestry from './Ancestry';
 import Home from './Home';
 import {Route, Switch, BrowserRouter} from "react-router-dom";
 import NavBar from './NavBar';
-import { Router } from 'react-router-dom/cjs/react-router-dom.min';
+
 
 function App() {
 
@@ -15,29 +15,29 @@ function App() {
   
     <BrowserRouter>
       <h1>Pathfinder 2e Character Builder</h1>
-    <div className="App">
-        <NavBar/> 
-          <Switch>
+        <div className="App">
+            <NavBar/> 
+              <Switch>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+                <Route exact path="/">
+                  <Home />
+                </Route>
 
-            <Route path='/Classlist'>
-              <Classlist  />
-            </Route>
+                <Route path='/Classlist'>
+                  <Classlist  />
+                </Route>
 
-            <Route path='/Ancestry' >
-              <Ancestry/>
-            </Route>
+                <Route path='/Ancestry' >
+                  <Ancestry/>
+                </Route>
 
-            <Route path='/Background' >
-              <Background/>
-            </Route>
+                <Route path='/Background' >
+                  <Background/>
+                </Route>
 
-          </Switch>
-          
-    </div>
+              </Switch>
+              
+        </div>
     </BrowserRouter>
    
   );
