@@ -1,8 +1,9 @@
 import React,{useState,useEffect} from 'react';
 
-function Background(){
+function Background({createCharacter, setCreateCharacter}){
   const [getBackground, setGetBackground] = useState([])
 const [backDescription, setBackDescription] = useState("")
+
   useEffect(() => {
     fetch("http://localhost:3000/background")
       .then((r) => r.json())
@@ -21,8 +22,10 @@ const [backDescription, setBackDescription] = useState("")
  }
 
   return (
+<div>
+    <header className='header'>Background</header>
     <div className='name-list'>
-      <h1>Background</h1>
+     
       {getBackground.map((background, index) => (
         <div key={index} className='name' onClick={()=>getDescription(index)}>
              <p>{background.name}</p>
@@ -30,6 +33,7 @@ const [backDescription, setBackDescription] = useState("")
       ))}
       <div dangerouslySetInnerHTML={{ __html: backDescription }}></div>
     </div>
+  </div>
   )
 }
 

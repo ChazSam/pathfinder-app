@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 
-function Ancestry(){
+function Ancestry({createCharacter, setCreateCharacter}){
   const [getAncestry, setGetAncestry] = useState([])
   const[ancestryDesc, setAncestryDesc] = useState("")
 
@@ -25,15 +25,16 @@ function Ancestry(){
 
 
   return (
+    <div>
+      <header className='header'>Ancestry</header>
     <div className='name-list'>
-      <h1>Ancestry</h1>
-      <p>Click for a description</p>
       {getAncestry.map((ancestry, index)=> (
         <div key={index} className='name' onClick={()=>getDescription(index)}>
         <p>{ancestry.name}</p>
         </div>
       ))}
           <div dangerouslySetInnerHTML={{ __html: ancestryDesc }}></div>
+    </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 
 
-function Classlist(){
+function Classlist({createCharacter, setCreateCharacter}){
 const [getClassName, setGetClassName] = useState([])
 const [addDescription, setAddDescription] =useState("")
 
@@ -21,8 +21,10 @@ const [addDescription, setAddDescription] =useState("")
   }
 
 return (
+  <div>
+    <header className='header'>Classes</header>
   <div className="name-list">
-    <h1>Classes</h1>
+
     {getClassName.map((classItem, index) => (
       <div key={index} className="name" onClick={()=>getDescription(index)} >  
         <p>{classItem.name}</p>
@@ -30,6 +32,7 @@ return (
       </div>
     ))}
     <div dangerouslySetInnerHTML={{ __html: addDescription }}></div>
+  </div>
   </div>
 )
 

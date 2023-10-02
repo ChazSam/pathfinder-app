@@ -1,9 +1,10 @@
 import React from "react";
 
 
-function Home() {
+function Home({createCharacter, setCreateCharacter}) {
   return <div>
-            <h1>Character</h1>
+            <header className='header'>Character Creation</header>
+            <p>Click on of the links above to create a character!</p>
          </div>;
 }
 export default Home;
