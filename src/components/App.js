@@ -39,8 +39,9 @@ const [createCharacter, setCreateCharacter] = useState([])
               </Switch>
               
         </div>
+
     </BrowserRouter>
-   
+
   );
 }
 
