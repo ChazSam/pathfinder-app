@@ -25,12 +25,14 @@ code {
   border: 1px solid #ccc; 
 }
 
-.navbar{
+nav{
+  margin: 1rem 1rem 1rem;
   font-size: 30px;
   padding: 30px; 
   text-align: center;
   font-weight: bold; 
   color: red;
+  border-bottom: 5px;
 }
 
 .title{

@@ -1,6 +1,7 @@
 import React from "react";
 
 function Home({createCharacter, setCreateCharacter}) {
+
   return <div className="home">
             <div>
               <header className='header'>Character Creation</header>
@@ -8,7 +9,7 @@ function Home({createCharacter, setCreateCharacter}) {
             </div>
           
             <div>
-              <p>Ancestry</p>
+              <p>Ancestry </p>
               <p>Class</p>
               <p>Background</p>
             </div>

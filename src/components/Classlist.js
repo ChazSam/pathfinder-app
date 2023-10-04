@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Classlist({createCharacter, setCreateCharacter}){
 const [getClassName, setGetClassName] = useState([])
@@ -27,11 +27,11 @@ return (
 
     {getClassName.map((classItem, index) => (
       <div key={index} className="name" onClick={()=>getDescription(index)} >  
-        <p>{classItem.name}</p>
-        {/* <a>{classItem.system.description}</a> */}
+        <Link to={`Classlist/${classItem.name}`}>{classItem.name}</Link>
+  
       </div>
     ))}
-    <div dangerouslySetInnerHTML={{ __html: addDescription }}></div>
+    
   </div>
   </div>
 )
