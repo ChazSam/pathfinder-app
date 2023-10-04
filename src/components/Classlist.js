@@ -16,9 +16,9 @@ const [addDescription, setAddDescription] =useState("")
       });
   }, []);
 
-  function getDescription (i){
-     setAddDescription(getClassName[i].system.description.value)
-  }
+  // function getDescription (i){
+  //    setAddDescription(getClassName[i].system.description.value)
+  // }
 
 return (
   <div>
@@ -26,7 +26,7 @@ return (
   <div className="name-list">
 
     {getClassName.map((classItem, index) => (
-      <div key={index} className="name" onClick={()=>getDescription(index)} >  
+      <div key={index} className="name"  >  
         <Link to={`Classlist/${classItem.name}`}>{classItem.name}</Link>
   
       </div>
@@ -34,9 +34,7 @@ return (
     
   </div>
   </div>
-)
-
-}
+)}
 
 export default Classlist
 

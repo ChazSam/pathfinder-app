@@ -13,7 +13,10 @@ function Home({createCharacter, setCreateCharacter}) {
               <p>Class</p>
               <p>Background</p>
             </div>
-
+            <div>
+              <input type="text" placeholder="enter name"></input>
+              <button type='submit'>Enter</button>
+            </div>
             <div>
               <button type='submit' onClick={()=>console.log("save")}>Save</button>
               <button type='submit' onClick={()=>console.log("load")}>Load</button>

@@ -25,11 +25,13 @@ const [createCharacter, setCreateCharacter] = useState([])
                   <Home createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
                 </Route>
 
-                <Route path='/Classlist'>
+                <Route exact path='/Classlist'>
                   <Classlist createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
                 </Route>
-                <Route path='/Classlist/:name' component={ClassDesc} >
-                </Route>
+
+                <Route path='/Classlist/:name' > 
+                <ClassDesc/>
+                 </Route>
 
                 <Route path='/Ancestry' >
                   <Ancestry createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
@@ -38,10 +40,10 @@ const [createCharacter, setCreateCharacter] = useState([])
                 <Route path='/Background' >
                   <Background createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
                 </Route>
-                
-                <Route path='/ClassDesc' >
-                  <Background createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
-                </Route>
+
+                {/* <Route path='/ClassDesc' >
+                  <ClassDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
+                </Route> */}
 
               </Switch>
               
