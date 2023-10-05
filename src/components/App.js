@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Classlist from "./Classlist"
 import Background from './Background';
@@ -8,7 +7,8 @@ import {Route, Switch, BrowserRouter} from "react-router-dom";
 import NavBar from './NavBar';
 import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 import ClassDesc from './ClassDesc';
-
+import BackDesc from './BackDesc';
+import AncesDesc from './AncesDesc';
 
 function App() {
 const [createCharacter, setCreateCharacter] = useState([])
@@ -33,14 +33,21 @@ const [createCharacter, setCreateCharacter] = useState([])
                 <ClassDesc/>
                  </Route>
 
-                <Route path='/Ancestry' >
+                <Route exact path='/Ancestry' >
                   <Ancestry createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
                 </Route>
 
-                <Route path='/Background' >
+                <Route path='/Ancestry/:name' > 
+                <AncesDesc/>
+                 </Route>
+
+                <Route exact path='/Background' >
                   <Background createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
                 </Route>
 
+                <Route path='/Background/:name' > 
+                <BackDesc/>
+                 </Route>
                 {/* <Route path='/ClassDesc' >
                   <ClassDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
                 </Route> */}

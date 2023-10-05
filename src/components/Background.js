@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Background({createCharacter, setCreateCharacter}){
   const [getBackground, setGetBackground] = useState([])
@@ -28,7 +29,7 @@ const [backDescription, setBackDescription] = useState("")
      
       {getBackground.map((background, index) => (
         <div key={index} className='name' onClick={()=>getDescription(index)}>
-             <p>{background.name}</p>
+             <Link to={`Background/${background.name}`}>{background.name}</Link>
         </div>
       ))}
       <div dangerouslySetInnerHTML={{ __html: backDescription }}></div>
