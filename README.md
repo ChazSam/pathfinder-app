@@ -7,3 +7,11 @@ Pick a:
 -Class
 
 save what you want and save it for later. 
+
+  App
+  NavBar
+   |--Home
+   |--Ancestry--AncesDesc
+   |--Classlist--ClassDesc
+   |--Background--BackDesc
+

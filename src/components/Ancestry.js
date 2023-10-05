@@ -20,9 +20,6 @@ function Ancestry({createCharacter, setCreateCharacter}){
       
   }, []);
 
-  function getDescription (i){
-    setAncestryDesc(getAncestry[i].system.description.value)
- }
 
 
   return (
@@ -30,11 +27,11 @@ function Ancestry({createCharacter, setCreateCharacter}){
       <header className='header'>Ancestry</header>
     <div className='name-list'>
       {getAncestry.map((ancestry, index)=> (
-        <div key={index} className='name' onClick={()=>getDescription(index)}>
+        <div key={index} className='name' >
         <Link to={`Ancestry/${ancestry.name}`}>{ancestry.name}</Link>
         </div>
       ))}
-          <div dangerouslySetInnerHTML={{ __html: ancestryDesc }}></div>
+
     </div>
     </div>
   )

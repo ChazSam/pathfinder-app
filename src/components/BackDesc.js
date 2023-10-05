@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Route, useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 function BackDesc(){
 const {name} = useParams()
@@ -24,8 +24,13 @@ return (
 <div>
     <h1>{name}</h1> 
     {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Background not found</div>}
-    <button type='button'>save</button>
-    <button type='button'>back</button>
+    <Link to='/'>
+        <button type='button'>save</button>
+    </Link>
+    <Link to='/Background'>
+        <button type='button'>back</button>
+    </Link>
+   
 </div>
    
 

@@ -18,9 +18,7 @@ const [backDescription, setBackDescription] = useState("")
       
   }, []);
 
-  function getDescription (i){
-    setBackDescription(getBackground[i].system.description.value)
- }
+
 
   return (
 <div>
@@ -28,11 +26,11 @@ const [backDescription, setBackDescription] = useState("")
     <div className='name-list'>
      
       {getBackground.map((background, index) => (
-        <div key={index} className='name' onClick={()=>getDescription(index)}>
+        <div key={index} className='name' >
              <Link to={`Background/${background.name}`}>{background.name}</Link>
         </div>
       ))}
-      <div dangerouslySetInnerHTML={{ __html: backDescription }}></div>
+
     </div>
   </div>
   )

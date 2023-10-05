@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Route, useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, Route, useParams } from 'react-router-dom/cjs/react-router-dom.min'
 
 function ClassDesc({key}){
 const {name} = useParams()
@@ -23,8 +23,14 @@ return (
 <div>
     <h1>{name}</h1> 
     {getDesc? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>class not found</div>}
-    <button type='button'>save</button>
-    <button type='button'>back</button>
+    <Link to='/'>
+        <button type='button'>save</button>
+    </Link>
+    
+    <Link to='/Classlist'>
+        <button type='button'>back</button>
+    </Link>
+   
 </div>
    
 
