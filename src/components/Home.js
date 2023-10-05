@@ -9,12 +9,13 @@ function Home({createCharacter, setCreateCharacter}) {
             </div>
           
             <div>
-              <p>Ancestry </p>
-              <p>Class</p>
-              <p>Background</p>
+            <p>Name:  </p>
+              <p>Ancestry:  </p>
+              <p>Class: </p>
+              <p>Background: </p>
             </div>
             <div>
-              <input type="text" placeholder="enter name"></input>
+              <input type="text" placeholder="enter name" onClick={(e)=>console.log(e.target.value)}></input>
               <button type='submit'>Enter</button>
             </div>
             <div>
