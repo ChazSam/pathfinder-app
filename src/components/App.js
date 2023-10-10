@@ -41,23 +41,23 @@ const [createCharacter, setCreateCharacter] = useState({
                 </Route>
 
                 <Route exact path='/Classlist'>
-                  <Classlist createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
+                  <Classlist />
                 </Route>
 
                 <Route path='/Classlist/:name' > 
-                <ClassDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
+                <ClassDesc />
                  </Route>
 
                 <Route exact path='/Ancestry' >
-                  <Ancestry  createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
+                  <Ancestry />
                 </Route>
 
                 <Route path='/Ancestry/:name' > 
-                <AncesDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
+                <AncesDesc />
                  </Route>
 
                 <Route exact path='/Background' >
-                  <Background createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
+                  <Background />
                 </Route>
 
                 <Route path='/Background/:name' > 

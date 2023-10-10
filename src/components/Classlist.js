@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-function Classlist({createCharacter, setCreateCharacter}){
+function Classlist(){
 const [getClassName, setGetClassName] = useState([])
 const [addDescription, setAddDescription] = useState("")
 
@@ -23,7 +23,7 @@ return (
 
     {getClassName.map((classItem, index) => (
       <div key={index} className="name"  >  
-        <Link createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}  to={`Classlist/${classItem.name}`}>{classItem.name}</Link>
+        <Link  to={`Classlist/${classItem.name}`}>{classItem.name}</Link>
       </div>
     ))}
     

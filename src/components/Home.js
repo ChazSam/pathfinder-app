@@ -13,7 +13,35 @@ setInputName(e.target.value)
       ...createCharacter,
       name: inputName
     })
+    setInputName("")
   }
+  function reset(){
+    setCreateCharacter({
+      ...createCharacter,
+      name: "",
+      ancestry: "",
+      class:"",
+      background:""
+    })
+  }
+
+function saveCharacter(){
+  fetch("http://localhost:3000/characterCreation", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(createCharacter),
+  })
+  setCreateCharacter({
+    ...createCharacter,
+    name: "",
+    ancestry: "",
+    class:"",
+    background:""
+  })
+}
+
 
   return <div className="home">
             <div>
@@ -34,9 +62,9 @@ setInputName(e.target.value)
             </div>
 
             <div>
-              <button type='submit' onClick={()=>console.log("save")}>Save</button>
+              <button type='submit' onClick={saveCharacter}>Save</button>
               {/* <button type='submit' onClick={()=>console.log("load")}>Load</button> */}
-              <button type='submit' onClick={()=>console.log("reset")}>Reset</button>
+              <button type='submit' onClick={reset}>Reset</button>
             </div>
           </div>
 }

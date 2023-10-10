@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import { Link, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import BackDesc from './BackDesc';
 
-function Background({createCharacter, setCreateCharacter}){
+function Background(){
   const [getBackground, setGetBackground] = useState([])
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Background({createCharacter, setCreateCharacter}){
           });
       
   }, []);
- console.log(createCharacter)
+
 
   return (
 <div>
@@ -25,7 +25,7 @@ function Background({createCharacter, setCreateCharacter}){
     <div className='name-list'>
      
       {getBackground.map((background, index) => (
-        <div key={index} className='name'  createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}>
+        <div key={index} className='name'>
              <Link to={`Background/${background.name}`} state={{from: "App"}}>{background.name}</Link>
         </div>
       ))}
@@ -34,30 +34,5 @@ function Background({createCharacter, setCreateCharacter}){
   </div>
   )
 }
-// return (
-//   <div>
-//     <header className='header'>Background</header>
-//     <div className='name-list'>
-//       {getBackground.map((background, index) => (
-//         <div key={index} className='name'>
-//           <Link to={`/Background/${background.name}`}>{background.name}</Link>
-//         </div>
-//       ))}
-//     </div>
 
-//     {/* Define a Route to render a component when the background name is clicked */}
-//     <Route
-//       path="/Background/:name"
-//       createRoot={(props) => (
-//         // Render the component with createCharacter and setCreateCharacter props
-//         <BackDesc
-//           {...props}
-//           createCharacter={createCharacter}
-//           setCreateCharacter={setCreateCharacter}
-//         />
-//       )}
-//     />
-//   </div>
-// );
-// }
 export default Background
