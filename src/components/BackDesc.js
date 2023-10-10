@@ -1,10 +1,15 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useContext} from 'react'
 import { Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import {  StateContext } from './App'
+
 
 function BackDesc(){
 const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
+// const [backDescription, setBackDescription] = useState("")
+// const { createCharacter, setCreateCharacter } = useStateContext();
 
+const [createCharacter,setCreateCharacter]=useContext(StateContext)
 
 useEffect(() => {
     fetch(`http://localhost:3000/background`)
@@ -19,13 +24,24 @@ useEffect(() => {
       });
   }, []);
 
+// useEffect(()=>{
+//     console.log(createCharacter)
+// })
+
+function setBackground(){
+    setCreateCharacter({
+        ...createCharacter,
+        background: name
+      })
+}
+
 return (
 
 <div>
     <h1>{name}</h1> 
     {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Background not found</div>}
     <Link to='/'>
-        <button type='button'>save</button>
+        <button type='button'onClick={setBackground}>save</button>
     </Link>
     <Link to='/Background'>
         <button type='button'>back</button>

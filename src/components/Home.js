@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Home({createCharacter, setCreateCharacter}) {
+
+const [inputName, setInputName] = useState("")
+
+function handleNameChange(e){
+setInputName(e.target.value)
+}
+
+  function setName(){
+    setCreateCharacter({
+      ...createCharacter,
+      name: inputName
+    })
+  }
 
   return <div className="home">
             <div>
@@ -9,18 +22,20 @@ function Home({createCharacter, setCreateCharacter}) {
             </div>
           
             <div>
-            <p>Name:  </p>
-              <p>Ancestry:  </p>
-              <p>Class: </p>
-              <p>Background: </p>
+            <p>Name: {createCharacter.name} </p>
+              <p>Ancestry: {createCharacter.ancestry} </p>
+              <p>Class: {createCharacter.class} </p>
+              <p>Background: {createCharacter.background} </p>
             </div>
+
             <div>
-              <input type="text" placeholder="enter name" onClick={(e)=>console.log(e.target.value)}></input>
-              <button type='submit'>Enter</button>
+              <input type="text" value={inputName} placeholder="enter name" onChange={handleNameChange}></input>
+              <button type='submit'onClick={setName}>Enter</button>
             </div>
+
             <div>
               <button type='submit' onClick={()=>console.log("save")}>Save</button>
-              <button type='submit' onClick={()=>console.log("load")}>Load</button>
+              {/* <button type='submit' onClick={()=>console.log("load")}>Load</button> */}
               <button type='submit' onClick={()=>console.log("reset")}>Reset</button>
             </div>
           </div>

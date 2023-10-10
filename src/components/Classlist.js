@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Classlist({createCharacter, setCreateCharacter}){
 const [getClassName, setGetClassName] = useState([])
-const [addDescription, setAddDescription] =useState("")
+const [addDescription, setAddDescription] = useState("")
 
   useEffect(() => {
     fetch("http://localhost:3000/class")
@@ -16,10 +16,6 @@ const [addDescription, setAddDescription] =useState("")
       });
   }, []);
 
-  // function getDescription (i){
-  //    setAddDescription(getClassName[i].system.description.value)
-  // }
-
 return (
   <div>
     <header className='header'>Classes</header>
@@ -27,8 +23,7 @@ return (
 
     {getClassName.map((classItem, index) => (
       <div key={index} className="name"  >  
-        <Link to={`Classlist/${classItem.name}`}>{classItem.name}</Link>
-  
+        <Link createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}  to={`Classlist/${classItem.name}`}>{classItem.name}</Link>
       </div>
     ))}
     

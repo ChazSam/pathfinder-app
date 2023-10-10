@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import Classlist from "./Classlist"
 import Background from './Background';
 import Ancestry from './Ancestry';
@@ -9,12 +9,27 @@ import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 import ClassDesc from './ClassDesc';
 import BackDesc from './BackDesc';
 import AncesDesc from './AncesDesc';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+// import { StateProvider } from './context';
+
+export const StateContext = createContext();
 
 function App() {
-const [createCharacter, setCreateCharacter] = useState([])
+
+// const location = useLocation()
+// const {from} = location.state
+
+
+const [createCharacter, setCreateCharacter] = useState({
+  name: '',
+  ancestry: '',
+  class: '',
+  background: '',
+})
+
 
   return (
-  
+   <StateContext.Provider value={[createCharacter, setCreateCharacter]}>
     <BrowserRouter>
       <h1 className='title'>Pathfinder 2e Character Builder</h1>
         <div className="App">
@@ -22,27 +37,27 @@ const [createCharacter, setCreateCharacter] = useState([])
               <Switch>
 
                 <Route exact path="/">
-                  <Home createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
+                  <Home  createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
                 </Route>
 
                 <Route exact path='/Classlist'>
-                  <Classlist createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
+                  <Classlist createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
                 </Route>
 
                 <Route path='/Classlist/:name' > 
-                <ClassDesc/>
+                <ClassDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
                  </Route>
 
                 <Route exact path='/Ancestry' >
-                  <Ancestry createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
+                  <Ancestry  createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
                 </Route>
 
                 <Route path='/Ancestry/:name' > 
-                <AncesDesc/>
+                <AncesDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
                  </Route>
 
                 <Route exact path='/Background' >
-                  <Background createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
+                  <Background createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
                 </Route>
 
                 <Route path='/Background/:name' > 
@@ -57,7 +72,7 @@ const [createCharacter, setCreateCharacter] = useState([])
         </div>
 
     </BrowserRouter>
-
+     </StateContext.Provider>
   );
 }
 

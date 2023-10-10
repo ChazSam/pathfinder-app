@@ -1,9 +1,13 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useContext} from 'react'
 import { Link, Route, useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import {  StateContext } from './App'
 
-function ClassDesc({key}){
+function ClassDesc(){
 const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
+const [nameClass, setNameClass] = useState("")
+
+const [createCharacter,setCreateCharacter]=useContext(StateContext)
 
 
 useEffect(() => {
@@ -18,13 +22,21 @@ useEffect(() => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+function saveClass(){
+setCreateCharacter({
+    ...createCharacter,
+    class: name
+})
+}
+
 return (
 
 <div>
     <h1>{name}</h1> 
     {getDesc? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>class not found</div>}
     <Link to='/'>
-        <button type='button'>save</button>
+        <button type='button'onClick={saveClass} >save</button>
     </Link>
     
     <Link to='/Classlist'>
