@@ -5,7 +5,7 @@ function Home({createCharacter, setCreateCharacter}) {
 const [inputName, setInputName] = useState("")
 
 function handleNameChange(e){
-setInputName(e.target.value)
+  setInputName(e.target.value)
 }
 
   function setName(){
@@ -15,6 +15,7 @@ setInputName(e.target.value)
     })
     setInputName("")
   }
+  
   function reset(){
     setCreateCharacter({
       ...createCharacter,

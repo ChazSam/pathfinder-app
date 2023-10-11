@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Ancestry({createCharacter, setCreateCharacter}){
   const [getAncestry, setGetAncestry] = useState([])
-  const[ancestryDesc, setAncestryDesc] = useState("")
+
 
   useEffect(() => {
     fetch("http://localhost:3000/ancestry")
@@ -19,7 +19,6 @@ function Ancestry({createCharacter, setCreateCharacter}){
           });
       
   }, []);
-
 
 
   return (

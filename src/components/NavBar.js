@@ -9,7 +9,6 @@ function NavBar() {
          <NavLink to="/Ancestry"> Ancestry </NavLink> 
          <NavLink to="/Classlist"> Classes </NavLink> 
          <NavLink to="/Background"> Background </NavLink> 
-         {/* <NavLink to="/ClassDesc"> ClassDesc </NavLink>  */}
      </nav>
   )
 }

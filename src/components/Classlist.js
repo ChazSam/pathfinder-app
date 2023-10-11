@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Classlist(){
 const [getClassName, setGetClassName] = useState([])
-const [addDescription, setAddDescription] = useState("")
 
   useEffect(() => {
     fetch("http://localhost:3000/class")

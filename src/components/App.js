@@ -9,16 +9,10 @@ import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 import ClassDesc from './ClassDesc';
 import BackDesc from './BackDesc';
 import AncesDesc from './AncesDesc';
-import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
-// import { StateProvider } from './context';
 
 export const StateContext = createContext();
 
 function App() {
-
-// const location = useLocation()
-// const {from} = location.state
-
 
 const [createCharacter, setCreateCharacter] = useState({
   name: '',
@@ -26,7 +20,6 @@ const [createCharacter, setCreateCharacter] = useState({
   class: '',
   background: '',
 })
-
 
   return (
    <StateContext.Provider value={[createCharacter, setCreateCharacter]}>
@@ -45,34 +38,29 @@ const [createCharacter, setCreateCharacter] = useState({
                 </Route>
 
                 <Route path='/Classlist/:name' > 
-                <ClassDesc />
-                 </Route>
+                  <ClassDesc />
+                </Route>
 
                 <Route exact path='/Ancestry' >
                   <Ancestry />
                 </Route>
 
                 <Route path='/Ancestry/:name' > 
-                <AncesDesc />
-                 </Route>
+                  <AncesDesc />
+                </Route>
 
                 <Route exact path='/Background' >
                   <Background />
                 </Route>
 
                 <Route path='/Background/:name' > 
-                <BackDesc/>
-                 </Route>
-                {/* <Route path='/ClassDesc' >
-                  <ClassDesc createCharacter={createCharacter} setCreateCharacter={setCreateCharacter} />
-                </Route> */}
+                  <BackDesc/>
+                </Route>
 
               </Switch>
-              
         </div>
-
     </BrowserRouter>
-     </StateContext.Provider>
+  </StateContext.Provider>
   );
 }
 

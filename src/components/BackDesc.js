@@ -6,8 +6,7 @@ import {  StateContext } from './App'
 function BackDesc(){
 const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
-// const [backDescription, setBackDescription] = useState("")
-// const { createCharacter, setCreateCharacter } = useStateContext();
+
 
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
 
@@ -24,9 +23,6 @@ useEffect(() => {
       });
   }, []);
 
-// useEffect(()=>{
-//     console.log(createCharacter)
-// })
 
 function setBackground(){
     setCreateCharacter({

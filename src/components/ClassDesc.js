@@ -5,10 +5,8 @@ import {  StateContext } from './App'
 function ClassDesc(){
 const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
-const [nameClass, setNameClass] = useState("")
 
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
-
 
 useEffect(() => {
     fetch(`http://localhost:3000/class`)
@@ -24,10 +22,10 @@ useEffect(() => {
   }, []);
 
 function saveClass(){
-setCreateCharacter({
-    ...createCharacter,
-    class: name
-})
+    setCreateCharacter({
+        ...createCharacter,
+        class: name
+    })
 }
 
 return (
