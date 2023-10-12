@@ -1,12 +1,22 @@
 import React,{useState,useEffect, useContext} from 'react'
 import { Link, Route, useParams } from 'react-router-dom/cjs/react-router-dom.min'
 import {  StateContext } from './App'
+// import { AppDataList } from './App';
+
 
 function ClassDesc(){
 const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
 
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
+
+
+// const [appData,setAppData]=useContext(AppDataList)
+
+// useEffect(()=>{
+//     const found = appData[0].class.find((item => item.name === name))
+//    setGetDesc(found.system.description.value)
+//     }, [])
 
 useEffect(() => {
     fetch(`http://localhost:3000/class`)

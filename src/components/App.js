@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import Classlist from "./Classlist"
 import Background from './Background';
 import Ancestry from './Ancestry';
@@ -10,9 +10,23 @@ import ClassDesc from './ClassDesc';
 import BackDesc from './BackDesc';
 import AncesDesc from './AncesDesc';
 
-export const StateContext = createContext();
+export const StateContext = createContext()
+export const AppDataList = createContext()
 
 function App() {
+const [appData, setAppData] = useState([])
+
+useEffect(() => {
+  fetch("http://localhost:3000/data")
+    .then((response) => response.json())
+    .then((items) => {
+      setAppData(items);
+  
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
+}, []);
 
 const [createCharacter, setCreateCharacter] = useState({
   name: '',
@@ -22,7 +36,8 @@ const [createCharacter, setCreateCharacter] = useState({
 })
 
   return (
-   <StateContext.Provider value={[createCharacter, setCreateCharacter]}>
+   <StateContext.Provider value={[createCharacter, setCreateCharacter,]}>
+    {/* <AppDataList.Provider value={[appData, setAppData]}> */}
     <BrowserRouter>
       <h1 className='title'>Pathfinder 2e Character Builder</h1>
         <div className="App">
@@ -60,6 +75,7 @@ const [createCharacter, setCreateCharacter] = useState({
               </Switch>
         </div>
     </BrowserRouter>
+    {/* </AppDataList.Provider> */}
   </StateContext.Provider>
   );
 }

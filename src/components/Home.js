@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function Home({createCharacter, setCreateCharacter}) {
 
 const [inputName, setInputName] = useState("")
+const [loadCharacter, setLoadCharacter] = useState([])
 
 function handleNameChange(e){
   setInputName(e.target.value)
@@ -26,14 +27,28 @@ function handleNameChange(e){
     })
   }
 
+function getCharacter(){
+    fetch("http://localhost:3000/characters")
+      .then((r) => r.json())
+      .then((items) => {
+        
+          setLoadCharacter(items)
+        })
+        .catch((error) => {
+        console.error("Error fetching data:", error);
+          });
+}
+
+
 function saveCharacter(){
-  fetch("http://localhost:3000/characterCreation", {
+  fetch("http://localhost:3000/characters", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(createCharacter),
   })
+
   setCreateCharacter({
     ...createCharacter,
     name: "",
@@ -64,7 +79,7 @@ function saveCharacter(){
 
             <div>
               <button type='submit' onClick={saveCharacter}>Save</button>
-              {/* <button type='submit' onClick={()=>console.log("load")}>Load</button> */}
+              <button type='submit' onClick={()=>console.log("load")}>Load</button>
               <button type='submit' onClick={reset}>Reset</button>
             </div>
           </div>

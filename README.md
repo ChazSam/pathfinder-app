@@ -6,7 +6,7 @@ Pick a:
 -Background
 -Class
 
-save what you want and save it for later. 
+Create a character of what you want and save it for later. 
 
   App
   NavBar

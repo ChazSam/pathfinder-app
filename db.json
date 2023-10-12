@@ -1,33 +1,6 @@
 {
-  "characterCreation": [
-    {
-      "name": "jimmy",
-      "ancestry": "Anadi",
-      "class": "Monk",
-      "background": "Aerialist",
-      "id": 1
-    },
-    {
-      "name": "jimmy2 electric boogaloo",
-      "ancestry": "Anadi",
-      "class": "Monk",
-      "background": "Aerialist",
-      "id": 2
-    },
-    {
-      "name": "",
-      "ancestry": "",
-      "class": "",
-      "background": "",
-      "id": 3
-    },
-    {
-      "name": "jojo",
-      "ancestry": "Android",
-      "class": "Barbarian",
-      "background": "Almas Clerk",
-      "id": 4
-    }
+  "characters": [
+
   ],
   "class": [
     {
