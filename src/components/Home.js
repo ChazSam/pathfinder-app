@@ -1,9 +1,25 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import Popup from "./Popup";
 function Home({createCharacter, setCreateCharacter}) {
 
 const [inputName, setInputName] = useState("")
 const [loadCharacter, setLoadCharacter] = useState([])
+
+function updateCharacterList(){
+  fetch("http://localhost:3000/characters")
+  .then((response) => response.json())
+  .then((items) => {
+    setLoadCharacter(items);
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });
+}
+
+  useEffect(() => {
+    updateCharacterList()
+  }, []);
+
 
 function handleNameChange(e){
   setInputName(e.target.value)
@@ -27,16 +43,8 @@ function handleNameChange(e){
     })
   }
 
-function getCharacter(){
-    fetch("http://localhost:3000/characters")
-      .then((r) => r.json())
-      .then((items) => {
-        
-          setLoadCharacter(items)
-        })
-        .catch((error) => {
-        console.error("Error fetching data:", error);
-          });
+function loadCharacterList(){
+   console.log(loadCharacter)
 }
 
 
@@ -47,7 +55,10 @@ function saveCharacter(){
       "Content-Type": "application/json",
     },
     body: JSON.stringify(createCharacter),
+    
   })
+  .then(updateCharacterList)
+ 
 
   setCreateCharacter({
     ...createCharacter,
@@ -57,7 +68,13 @@ function saveCharacter(){
     background:""
   })
 }
-
+function popupItem(){
+  return (
+    <div>
+      <p></p>
+    </div>
+  )
+}
 
   return <div className="home">
             <div>
@@ -79,7 +96,8 @@ function saveCharacter(){
 
             <div>
               <button type='submit' onClick={saveCharacter}>Save</button>
-              <button type='submit' onClick={()=>console.log("load")}>Load</button>
+              <Popup/>
+              <button type='submit' onClick={loadCharacterList}>Load</button>
               <button type='submit' onClick={reset}>Reset</button>
             </div>
           </div>

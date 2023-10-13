@@ -1,6 +1,47 @@
 {
   "characters": [
-
+    {
+      "name": "jimmy jojo",
+      "ancestry": "Android",
+      "class": "Bard",
+      "background": "Barrister",
+      "id": 1
+    },
+    {
+      "name": "",
+      "ancestry": "",
+      "class": "",
+      "background": "",
+      "id": 2
+    },
+    {
+      "name": "",
+      "ancestry": "",
+      "class": "",
+      "background": "",
+      "id": 3
+    },
+    {
+      "name": "asdfasdf",
+      "ancestry": "",
+      "class": "",
+      "background": "",
+      "id": 4
+    },
+    {
+      "name": "dfdfdfd",
+      "ancestry": "",
+      "class": "",
+      "background": "",
+      "id": 5
+    },
+    {
+      "name": "fefefefe",
+      "ancestry": "",
+      "class": "",
+      "background": "",
+      "id": 6
+    }
   ],
   "class": [
     {

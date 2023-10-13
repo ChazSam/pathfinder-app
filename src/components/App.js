@@ -14,19 +14,20 @@ export const StateContext = createContext()
 export const AppDataList = createContext()
 
 function App() {
-const [appData, setAppData] = useState([])
-
-useEffect(() => {
-  fetch("http://localhost:3000/data")
-    .then((response) => response.json())
-    .then((items) => {
-      setAppData(items);
   
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-    });
-}, []);
+// const [appData, setAppData] = useState([])
+
+// useEffect(() => {
+//   fetch("http://localhost:3000/data")
+//     .then((response) => response.json())
+//     .then((items) => {
+//       setAppData(items);
+  
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching data:", error);
+//     });
+// }, []);
 
 const [createCharacter, setCreateCharacter] = useState({
   name: '',
