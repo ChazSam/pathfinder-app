@@ -13,71 +13,12 @@
       "class": "Oracle",
       "background": "Tinker",
       "id": 2
-    },
-    {
-      "name": "asdfasdf",
-      "ancestry": "",
-      "class": "",
-      "background": "",
-      "id": 3
-    },
-    {
-      "name": "",
-      "ancestry": "Elf",
-      "class": "Bard",
-      "background": "Able Carter",
-      "id": 4
-    },
-    {
-      "name": "",
-      "ancestry": "",
-      "class": "",
-      "background": "",
-      "id": 5
-    },
-    {
-      "name": "jj asdf",
-      "ancestry": "Anadi",
-      "class": "Gunslinger",
-      "background": "Alkenstar Sojourner",
-      "id": 6
-    },
-    {
-      "name": "",
-      "ancestry": "",
-      "class": "",
-      "background": "",
-      "id": 7
-    },
-    {
-      "name": "",
-      "ancestry": "Automaton",
-      "class": "Barbarian",
-      "background": "Alkenstar Sojourner",
-      "id": 8
-    },
-    {
-      "name": "zammy zo",
-      "ancestry": "Grippli",
-      "class": "Wizard",
-      "background": "Academy Dropout",
-      "id": 9
-    },
-    {
-      "name": "jim",
-      "ancestry": "Sprite",
-      "class": "Oracle",
-      "background": "Artist",
-      "id": 10
-    },
-    {
-      "name": "asdfasdfa",
-      "ancestry": "Android",
-      "class": "Fighter",
-      "background": "Alkenstar Outlaw",
-      "id": 11
     }
+
   ],
+
+
+
   "class": [
     {
       "_id": "XwfcJuskrhI9GIjX",

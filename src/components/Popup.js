@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { StateContext } from "./App";
 
 function Popup({loadCharacter, setLoadCharacter}){
     const [modal, setModal] = useState(false)
+    const [createCharacter, setCreateCharacter]=useContext(StateContext)
 
     const toggleModal = () =>{
         setModal(!modal)
     }
 
-    function setLoaded(){
-        setLoadCharacter({
-
+    function setLoaded(character){
+        setCreateCharacter({
+            name:character.name,
+            ancestry: character.ancestry,
+            class: character.class,
+            background: character.background,
         })
     }
     
@@ -22,7 +27,7 @@ function Popup({loadCharacter, setLoadCharacter}){
                        <p>{character.ancestry}</p> 
                        <p>{character.class}</p> 
                        <p>{character.background}</p> 
-                       <button onClick={()=>console.log()} >select</button>
+                       <button onClick={()=>setLoaded(character)} >select</button>
                     </div>
                 ) )}
             

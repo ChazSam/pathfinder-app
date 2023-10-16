@@ -10,7 +10,6 @@ const [loadCharacter, setLoadCharacter] = useState([])
 const [classes, setClasses] = useState([])
 const [ancestries, setAncestries] = useState([])
 const [backgrounds, setBackgrounds] = useState([])
-
 const [createCharacter, setCreateCharacter]=useContext(StateContext)
 
 
@@ -158,8 +157,6 @@ function loadCharacterList(){
             </div>
             <Popup loadCharacter={loadCharacter} setLoadCharacter={setLoadCharacter}/>
             </form> 
-
-
           </div>
 }
 export default Home;
