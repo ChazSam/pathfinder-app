@@ -10,7 +10,7 @@ Create a character of what you want and save it for later.
 
   App
   NavBar
-   |--Home
+   |--Home--Popup
    |--Ancestry--AncesDesc
    |--Classlist--ClassDesc
    |--Background--BackDesc

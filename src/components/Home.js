@@ -152,7 +152,7 @@ function loadCharacterList(){
 
             <div>
               <button type='submit' onClick={saveCharacter}>Save</button>        
-              <button type='submit' onClick={loadCharacterList}>Load</button>
+              {/* <button type='submit' onClick={loadCharacterList}>Load</button> */}
               <button type='submit' onClick={reset}>Reset</button>
             </div>
             <Popup loadCharacter={loadCharacter} setLoadCharacter={setLoadCharacter}/>
