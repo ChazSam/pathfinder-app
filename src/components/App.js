@@ -11,10 +11,12 @@ import BackDesc from './BackDesc';
 import AncesDesc from './AncesDesc';
 
 export const StateContext = createContext()
-export const AppDataList = createContext()
+
+
+// export const AppDataList = createContext()
 
 function App() {
-  
+
 // const [appData, setAppData] = useState([])
 
 // useEffect(() => {
@@ -37,7 +39,7 @@ const [createCharacter, setCreateCharacter] = useState({
 })
 
   return (
-   <StateContext.Provider value={[createCharacter, setCreateCharacter,]}>
+   <StateContext.Provider value = {[createCharacter, setCreateCharacter]}>
     {/* <AppDataList.Provider value={[appData, setAppData]}> */}
     <BrowserRouter>
       <h1 className='title'>Pathfinder 2e Character Builder</h1>

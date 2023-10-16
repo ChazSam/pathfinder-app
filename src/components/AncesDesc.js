@@ -35,7 +35,7 @@ useEffect(() => {
         ...createCharacter,
         ancestry: name
       })
-
+ 
 }
 
 

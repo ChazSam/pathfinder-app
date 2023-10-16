@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Popup from "./Popup";
-function Home({createCharacter, setCreateCharacter}) {
+import {  StateContext } from './App'
+
+
+function Home() {
 
 const [inputName, setInputName] = useState("")
 const [loadCharacter, setLoadCharacter] = useState([])
 const [classes, setClasses] = useState([])
 const [ancestries, setAncestries] = useState([])
 const [backgrounds, setBackgrounds] = useState([])
+
+const [createCharacter, setCreateCharacter]=useContext(StateContext)
+
 
 function updateCharacterList(){
   fetch("http://localhost:3000/characters")
@@ -18,7 +24,6 @@ function updateCharacterList(){
     console.error("Error fetching data:", error);
   });
 }
-
   useEffect(() => {
     updateCharacterList()
   }, []);
@@ -63,20 +68,20 @@ useEffect(()=>{
     })
   }
 
-
-
-
 function saveCharacter(){
-  fetch("http://localhost:3000/characters", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(createCharacter),
-    
-  })
-  .then(updateCharacterList)
- 
+ createCharacter.name === "" || createCharacter.class === "" || createCharacter.ancestry === "" || createCharacter.background === "" 
+  ?  console.log("error") :
+
+    fetch("http://localhost:3000/characters", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createCharacter),
+      
+    })
+    .then(updateCharacterList)
+  
 
   setCreateCharacter({
     ...createCharacter,
@@ -88,7 +93,6 @@ function saveCharacter(){
 }
 
 function changeAncestry(e){
-  console.log(e.target.value)
  setCreateCharacter({
   ...createCharacter,
   ancestry: e.target.value
@@ -96,7 +100,6 @@ function changeAncestry(e){
 }
 
 function changeClass(e){
-  console.log(e.target.value)
  setCreateCharacter({
   ...createCharacter,
   class: e.target.value
@@ -104,7 +107,6 @@ function changeClass(e){
 }
 
 function changeBackground(e){
-  console.log(e.target.value)
  setCreateCharacter({
   ...createCharacter,
   background: e.target.value
@@ -127,19 +129,22 @@ function loadCharacterList(){
             <input type="text" value={inputName} placeholder="enter name" onChange={(e)=>setInputName(e.target.value)}></input>
             <button type='submit'onClick={setName}>Enter</button>
 
-              <p>Ancestry:   <select type="dropdown" onChange={changeAncestry}>
+              <p>Ancestry:   <select type="dropdown"  onChange={changeAncestry} value={createCharacter.ancestry}>
+                          <option key={"none"} value={""}>---</option>
                         {ancestries.map((ancData,index)=>(
                           <option key={index} value={ancData.name} >{ancData.name}</option>
                         ))}
                 </select></p>
 
-              <p>Class:   <select type="dropdown" onChange={changeClass}>
+              <p>Class:   <select type="dropdown" value={createCharacter.class} onChange={changeClass}>
+                  <option key={"none"} value={""}>---</option>
                         {classes.map((classData,index)=>(
                           <option key={index} value={classData.name}>{classData.name}</option>
                         ))}
                 </select></p>
 
-              <p>Background:   <select type="dropdown" onChange={changeBackground}>
+              <p>Background:   <select type="dropdown" value={createCharacter.background} onChange={changeBackground}>
+                      <option key={"none"} value={""}>---</option>
                         {backgrounds.map((backData,index)=>(
                           <option key={index} value={backData.name}>{backData.name}</option>
                         ))}
