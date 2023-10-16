@@ -8,7 +8,6 @@ const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
 
 
-
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
 
 // const [appData,setAppData]=useContext(AppDataList)

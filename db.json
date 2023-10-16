@@ -8,38 +8,38 @@
       "id": 1
     },
     {
-      "name": "",
-      "ancestry": "",
-      "class": "",
-      "background": "",
+      "name": "zanny zem",
+      "ancestry": "Gnome",
+      "class": "Oracle",
+      "background": "Tinker",
       "id": 2
-    },
-    {
-      "name": "",
-      "ancestry": "",
-      "class": "",
-      "background": "",
-      "id": 3
     },
     {
       "name": "asdfasdf",
       "ancestry": "",
       "class": "",
       "background": "",
+      "id": 3
+    },
+    {
+      "name": "",
+      "ancestry": "Elf",
+      "class": "Bard",
+      "background": "Able Carter",
       "id": 4
     },
     {
-      "name": "dfdfdfd",
+      "name": "",
       "ancestry": "",
       "class": "",
       "background": "",
       "id": 5
     },
     {
-      "name": "fefefefe",
-      "ancestry": "",
-      "class": "",
-      "background": "",
+      "name": "jj asdf",
+      "ancestry": "Anadi",
+      "class": "Gunslinger",
+      "background": "Alkenstar Sojourner",
       "id": 6
     }
   ],
