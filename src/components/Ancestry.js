@@ -1,11 +1,11 @@
-import React,{useState,useEffect, useContext} from 'react';
+import React,{useState,useEffect} from 'react';
 import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-// import { AppDataList } from './App';
+
 
 function Ancestry(){
   const [getAncestry, setGetAncestry] = useState([])
-  // const [appData,setAppData]=useContext(AppDataList)
+
 
   useEffect(() => {
     fetch("http://localhost:3000/ancestry")

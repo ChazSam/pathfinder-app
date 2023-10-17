@@ -13,12 +13,15 @@
       "class": "Oracle",
       "background": "Tinker",
       "id": 2
+    },
+    {
+      "name": "asf",
+      "ancestry": "Android",
+      "class": "Bard",
+      "background": "Barrister",
+      "id": 3
     }
-
   ],
-
-
-
   "class": [
     {
       "_id": "XwfcJuskrhI9GIjX",

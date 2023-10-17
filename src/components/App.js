@@ -1,35 +1,18 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, { useState, createContext } from 'react';
 import Classlist from "./Classlist"
 import Background from './Background';
 import Ancestry from './Ancestry';
 import Home from './Home';
 import {Route, Switch, BrowserRouter} from "react-router-dom";
 import NavBar from './NavBar';
-import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 import ClassDesc from './ClassDesc';
 import BackDesc from './BackDesc';
 import AncesDesc from './AncesDesc';
+import '/root/Development/code/se-prep/phase-2/pathfinder-app/src/index.css';
 
 export const StateContext = createContext()
 
-
-// export const AppDataList = createContext()
-
 function App() {
-
-// const [appData, setAppData] = useState([])
-
-// useEffect(() => {
-//   fetch("http://localhost:3000/data")
-//     .then((response) => response.json())
-//     .then((items) => {
-//       setAppData(items);
-  
-//     })
-//     .catch((error) => {
-//       console.error("Error fetching data:", error);
-//     });
-// }, []);
 
 const [createCharacter, setCreateCharacter] = useState({
   name: '',
@@ -40,10 +23,10 @@ const [createCharacter, setCreateCharacter] = useState({
 
   return (
    <StateContext.Provider value = {[createCharacter, setCreateCharacter]}>
-    {/* <AppDataList.Provider value={[appData, setAppData]}> */}
     <BrowserRouter>
+    <div className="App">
       <h1 className='title'>Pathfinder 2e Character Builder</h1>
-        <div className="App">
+        
             <NavBar/> 
               <Switch>
 
@@ -78,7 +61,6 @@ const [createCharacter, setCreateCharacter] = useState({
               </Switch>
         </div>
     </BrowserRouter>
-    {/* </AppDataList.Provider> */}
   </StateContext.Provider>
   );
 }

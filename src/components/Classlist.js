@@ -1,11 +1,10 @@
 import React,{useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-// import { AppDataList } from './App';
+
 
 function Classlist(){
 const [getClassName, setGetClassName] = useState([])
 
-// const [appData,setAppData]=useContext(AppDataList)
 
   useEffect(() => {
     fetch("http://localhost:3000/class")

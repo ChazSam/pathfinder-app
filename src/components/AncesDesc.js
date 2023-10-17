@@ -1,19 +1,11 @@
 import React,{useState,useEffect,useContext} from 'react'
-import { Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { useParams, Link } from 'react-router-dom/cjs/react-router-dom.min'
 import {  StateContext } from './App'
-import { AppDataList } from './App';
 
 function AncesDesc(){
 const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
-
-// const [appData,setAppData]=useContext(AppDataList)
-
-// useEffect(()=>{
-// const found = appData[0].ancestry.find((item => item.name === name))
-// setGetDesc(found.system.description.value)
-// }, [])
 
 
 useEffect(() => {
@@ -29,16 +21,12 @@ useEffect(() => {
       });
   }, []);
 
-
   function setAnces(){
     setCreateCharacter({
         ...createCharacter,
         ancestry: name
       })
- 
 }
-
-
 
 return (
 
