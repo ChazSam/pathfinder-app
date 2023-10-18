@@ -1,11 +1,8 @@
-import React,{useState,useEffect, useContext} from 'react';
+import React,{ useState,useEffect } from 'react';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-
-
 
 function Background(){
   const [getBackground, setGetBackground] = useState([])
-
 
   useEffect(() => {
     fetch("http://localhost:3000/background")

@@ -9,20 +9,18 @@ const [getDesc, setGetDesc] = useState("")
 
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
 
-    
 useEffect(() => {
     fetch(`http://localhost:3000/background`)
       .then((response) => response.json())
       .then((items) => {
   
        const found = items.find((item => item.name === name))
-       setGetDesc(found.system.description.value)
+        setGetDesc(found.system.description.value)
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
-
 
 function setBackground(){
     setCreateCharacter({
@@ -32,7 +30,7 @@ function setBackground(){
 }
 
 return (
-    <div>
+    <div className='BackDesc'>
         <h1>{name}</h1> 
         {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Background not found</div>}
         <Link to='/'>

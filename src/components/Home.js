@@ -4,13 +4,11 @@ import {  StateContext } from './App'
 
 function Home() {
 
-const [inputName, setInputName] = useState("")
 const [loadCharacter, setLoadCharacter] = useState([])
 const [classes, setClasses] = useState([])
 const [ancestries, setAncestries] = useState([])
 const [backgrounds, setBackgrounds] = useState([])
 const [createCharacter, setCreateCharacter]=useContext(StateContext)
-
 
 function updateCharacterList(){
   fetch("http://localhost:3000/characters")
@@ -42,19 +40,7 @@ useEffect(()=>{
   fetch("http://localhost:3000/ancestry")
   .then((response) => response.json())
   .then((items) => setAncestries(items));
-
 },[])
-
-
-  // function reset(){
-  //   setCreateCharacter({
-  //     ...createCharacter,
-  //     name: "",
-  //     ancestry: "",
-  //     class:"",
-  //     background:""
-  //   })
-  // }
 
 function saveCharacter(){
  createCharacter.name === "" || createCharacter.class === "" || createCharacter.ancestry === "" || createCharacter.background === "" 
@@ -78,31 +64,6 @@ function saveCharacter(){
     background:""
   }))
 }
-// function changeName(e){
-//   setCreateCharacter({
-//     ...createCharacter,
-//     name: e.target.value
-//   })
-//   setInputName("")
-// }
-// function changeAncestry(e){
-//  setCreateCharacter({
-//   ...createCharacter,
-//   ancestry: e.target.value
-//  })
-// }
-// function changeClass(e){
-//  setCreateCharacter({
-//   ...createCharacter,
-//   class: e.target.value
-//  })
-// }
-// function changeBackground(e){
-//  setCreateCharacter({
-//   ...createCharacter,
-//   background: e.target.value
-//  })
-// }
 
 function updateCharacter(e){
   setCreateCharacter({
@@ -120,8 +81,7 @@ function updateCharacter(e){
          <form onSubmit={(e)=>e.preventDefault()} >
             <div>
               <p>Name: {} 
-                <input type="text" name="name" value={inputName} placeholder="enter name" onChange={updateCharacter}></input>
-                  {/* <button type='submit'onClick={setName}>Enter</button> */}
+                <input type="text" name="name" placeholder="enter name" onChange={updateCharacter}></input>
               </p>
 
               <p>Ancestry:   
@@ -154,10 +114,8 @@ function updateCharacter(e){
 
             <div>
               <button type='submit' onClick={saveCharacter}>Save</button>        
-
-              {/* <button type='submit' onClick={reset}>Reset</button> */}
             </div>
-            <Popup loadCharacter={loadCharacter} setLoadCharacter={setLoadCharacter}/>
+            <Popup loadCharacter={loadCharacter} />
             </form> 
           </div>
 }

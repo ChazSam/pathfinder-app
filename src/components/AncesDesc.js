@@ -7,12 +7,10 @@ const {name} = useParams()
 const [getDesc, setGetDesc] = useState("")
 const [createCharacter,setCreateCharacter]=useContext(StateContext)
 
-
 useEffect(() => {
     fetch(`http://localhost:3000/ancestry`)
       .then((response) => response.json())
-      .then((items) => {
-        
+      .then((items) => { 
        const found = items.find((item => item.name === name))
        setGetDesc(found.system.description.value)
       })
@@ -29,18 +27,16 @@ useEffect(() => {
 }
 
 return (
-
-<div>
-    <h1>{name}</h1> 
-    {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Ancestry not found</div>}
-    <Link to='/' >
-      <button onClick={setAnces} >save</button>
-    </Link >
-    <Link to='/Ancestry' >
-      <button >back</button>
-    </Link>
-</div>
-   
-
+  <div className='AncesDesc'>
+      <h1>{name}</h1> 
+      {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Ancestry not found</div>}
+      <Link to='/' >
+        <button onClick={setAnces} >save</button>
+      </Link >
+      <Link to='/Ancestry' >
+        <button >back</button>
+      </Link>
+  </div>
 )}
+
 export default AncesDesc

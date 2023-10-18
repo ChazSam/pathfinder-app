@@ -30,7 +30,7 @@ function saveClass(){
 
 return (
 
-<div>
+<div className='ClassDesc'>
     <h1>{name}</h1> 
     {getDesc? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>class not found</div>}
     <Link to='/'>
