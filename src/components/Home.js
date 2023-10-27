@@ -4,17 +4,17 @@ import {  StateContext } from './App'
 
 function Home() {
 
-const [loadCharacter, setLoadCharacter] = useState([])
+const [characters, setCharacters] = useState([])
 const [classes, setClasses] = useState([])
 const [ancestries, setAncestries] = useState([])
 const [backgrounds, setBackgrounds] = useState([])
-const [createCharacter, setCreateCharacter]=useContext(StateContext)
+const [createCharacter, setCreateCharacter] = useContext(StateContext)
 
 function updateCharacterList(){
   fetch("http://localhost:3000/characters")
   .then((response) => response.json())
   .then((items) => {
-    setLoadCharacter(items);
+    setCharacters(items);
   })
   .catch((error) => {
     console.error("Error fetching data:", error);
@@ -27,7 +27,7 @@ function updateCharacterList(){
 useEffect(()=>{
   fetch("http://localhost:3000/characters")
   .then((response) => response.json())
-  .then((items) => setLoadCharacter(items));
+  .then((items) => setCharacters(items));
 
   fetch("http://localhost:3000/class")
   .then((response) => response.json())
@@ -40,6 +40,8 @@ useEffect(()=>{
   fetch("http://localhost:3000/ancestry")
   .then((response) => response.json())
   .then((items) => setAncestries(items));
+
+
 },[])
 
 function saveCharacter(){
@@ -52,10 +54,10 @@ function saveCharacter(){
         "Content-Type": "application/json",
       },
       body: JSON.stringify(createCharacter),
-      
     })
-    .then(updateCharacterList)
-  
+    .then(response => response.json())
+    .then(newCharacter => {setCharacters([...characters, newCharacter])})
+   
     .then (setCreateCharacter({
     ...createCharacter,
     name: "",
@@ -81,7 +83,7 @@ function updateCharacter(e){
          <form onSubmit={(e)=>e.preventDefault()} >
             <div>
               <p>Name: {} 
-                <input type="text" name="name" placeholder="enter name" onChange={updateCharacter}></input>
+                <input type="text" name="name" value={createCharacter.name} placeholder="enter name" onChange={updateCharacter}></input>
               </p>
 
               <p>Ancestry:   
@@ -115,7 +117,7 @@ function updateCharacter(e){
             <div>
               <button type='submit' onClick={saveCharacter}>Save</button>        
             </div>
-            <Popup loadCharacter={loadCharacter} />
+            <Popup characters={characters} />
             </form> 
           </div>
 }

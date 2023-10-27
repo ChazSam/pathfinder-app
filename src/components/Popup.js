@@ -3,7 +3,7 @@ import { StateContext } from "./App";
 import { Button } from "bootstrap";
 import Modal from "bootstrap";
 
-function Popup({loadCharacter}){
+function Popup({characters}){
 
     const [createCharacter, setCreateCharacter]=useContext(StateContext)
 
@@ -32,7 +32,7 @@ function Popup({loadCharacter}){
         </div>
         <div className="modal-body">
             <div className="overlay">
-                    {loadCharacter.map((character)=>(
+                    {characters.map((character)=>(
                         <div key={character.id}>
                         <p>{character.name}</p> 
                             <p>{character.ancestry}</p> 
@@ -40,7 +40,7 @@ function Popup({loadCharacter}){
                             <p>{character.background}</p> 
                             <button onClick={()=>setLoaded(character)} data-bs-dismiss="modal">select</button>
                         </div>
-                    ) )}
+                    ))}
                 
                 </div>
         </div>
