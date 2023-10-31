@@ -13,7 +13,6 @@ useEffect(() => {
     fetch(`http://localhost:3000/background`)
       .then((response) => response.json())
       .then((items) => {
-  
        const found = items.find((item => item.name === name))
         setGetDesc(found.system.description.value)
       })
@@ -28,17 +27,18 @@ function setBackground(){
         background: name
       })
 }
+//wont use dangerouslySetInnerHTML in a live program
 
 return (
     <div className='BackDesc'>
         <h1>{name}</h1> 
-        {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Background not found</div>}
-        <Link to='/'>
-            <button type='button'onClick={setBackground}>save</button>
-        </Link>
-        <Link to='/Background'>
-            <button type='button'>back</button>
-        </Link>
+          {getDesc ? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>Background not found</div>} 
+          <Link to='/'>
+              <button type='button'onClick={setBackground}>save</button>
+          </Link>
+          <Link to='/Background'>
+              <button type='button'>back</button>
+          </Link>
     
     </div>
     )}

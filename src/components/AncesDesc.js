@@ -25,7 +25,7 @@ useEffect(() => {
         ancestry: name
       })
 }
-
+//wont use dangerouslySetInnerHTML in a live program
 return (
   <div className='AncesDesc'>
       <h1>{name}</h1> 

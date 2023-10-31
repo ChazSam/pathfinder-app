@@ -20,34 +20,6 @@
       "class": "Druid",
       "background": "Amnesiac",
       "id": 3
-    },
-    {
-      "name": "asdf",
-      "ancestry": "Anadi",
-      "class": "Alchemist",
-      "background": "Able Carter",
-      "id": 4
-    },
-    {
-      "name": "a",
-      "ancestry": "Android",
-      "class": "Barbarian",
-      "background": "Able Carter",
-      "id": 5
-    },
-    {
-      "name": "asf",
-      "ancestry": "Catfolk",
-      "class": "Inventor",
-      "background": "Aiudara Seeker",
-      "id": 6
-    },
-    {
-      "name": "b",
-      "ancestry": "Android",
-      "class": "Champion",
-      "background": "Acolyte",
-      "id": 7
     }
   ],
   "class": [

@@ -31,7 +31,7 @@ const [createCharacter, setCreateCharacter] = useState({
               <Switch>
 
                 <Route exact path="/">
-                  <Home  createCharacter={createCharacter} setCreateCharacter={setCreateCharacter}/>
+                  <Home  />
                 </Route>
 
                 <Route exact path='/Classlist'>

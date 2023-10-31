@@ -12,7 +12,6 @@ useEffect(() => {
     fetch(`http://localhost:3000/class`)
       .then((response) => response.json())
       .then((items) => {
-        
        const found = items.find((item => item.name === name))
        setGetDesc(found.system.description.value)
       })
@@ -27,19 +26,19 @@ function saveClass(){
         class: name
     })
 }
-
+//wont use dangerouslySetInnerHTML in a live program
 return (
 
 <div className='ClassDesc'>
     <h1>{name}</h1> 
-    {getDesc? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>class not found</div>}
-    <Link to='/'>
-        <button type='button'onClick={saveClass} >save</button>
-    </Link>
-    
-    <Link to='/Classlist'>
-        <button type='button'>back</button>
-    </Link>
+        {getDesc? <div dangerouslySetInnerHTML={{ __html: getDesc }}></div> : <div>class not found</div>}
+        <Link to='/'>
+            <button type='button'onClick={saveClass} >save</button>
+        </Link>
+        
+        <Link to='/Classlist'>
+            <button type='button'>back</button>
+        </Link>
    
 </div>
    

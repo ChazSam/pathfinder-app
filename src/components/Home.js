@@ -41,7 +41,6 @@ useEffect(()=>{
   .then((response) => response.json())
   .then((items) => setAncestries(items));
 
-
 },[])
 
 function saveCharacter(){
@@ -55,16 +54,16 @@ function saveCharacter(){
       },
       body: JSON.stringify(createCharacter),
     })
-    .then(response => response.json())
-    .then(newCharacter => {setCharacters([...characters, newCharacter])})
-   
-    .then (setCreateCharacter({
-    ...createCharacter,
-    name: "",
-    ancestry: "",
-    class:"",
-    background:""
-  }))
+      .then(response => response.json())
+      .then(newCharacter => {setCharacters([...characters, newCharacter])})
+    
+      .then (setCreateCharacter({
+      ...createCharacter,
+      name: "",
+      ancestry: "",
+      class:"",
+      background:""
+    }))
 }
 
 function updateCharacter(e){

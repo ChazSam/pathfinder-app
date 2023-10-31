@@ -18,14 +18,14 @@ function Ancestry(){
   return (
     <div>
       <header className='header'>Ancestry</header>
-    <div className='name-list'>
-      {getAncestry.map((ancestry, index)=> (
-        <div key={index} className='name' >
-        <Link to={`Ancestry/${ancestry.name}`}>{ancestry.name}</Link>
-        </div>
-      ))}
+        <div className='name-list'>
+          {getAncestry.map((ancestry, index)=> (
+            <div key={index} className='name' >
+            <Link to={`Ancestry/${ancestry.name}`}>{ancestry.name}</Link>
+            </div>
+          ))}
 
-    </div>
+        </div>
     </div>
   )
 }
